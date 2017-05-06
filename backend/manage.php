@@ -14,8 +14,8 @@ $password = $_POST["password"];
 
 <?php
 // 这里设置好登录后台的账号密码
-$rel_name = "hello";
-$rel_password = "world";
+$rel_name = "user";
+$rel_password = "password";
 
 // 判断账号密码是否正确
 $isRight = ($user == $rel_name and $password == $rel_password);
