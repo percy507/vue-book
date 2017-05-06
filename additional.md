@@ -3,7 +3,7 @@
 
 ### menu.vue
 
-```json
+```
 // menu_list
 {
     '公共课': 'public_class',
@@ -15,7 +15,7 @@
 
 ### content.vue
 
-```json
+```
 // queryObj
 {
     type: home,           // 记录请求时所在的分类
@@ -28,7 +28,7 @@
 
 ### scan.js || manual.js
 
-```json
+```
 {
     flag: 'in-scan',       // 记录操作的方式
     // flag: in-scan、out-scan、in-manual、out-manual
