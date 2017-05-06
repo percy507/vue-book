@@ -1,4 +1,4 @@
-<h1 style="text-align:center;color:#03a9f4">Vue-book</h1>
+# Vue-book
 
 ## 说明
 
@@ -77,6 +77,13 @@ Vue-book directory
 ├── webpack.config.js               # Webpack 配置相关信息
 ├── README.md
 ```
+
+## 待解决问题
+
+* 切换内容页面时，默认滚动到内容最顶部（content.vue）
+* 移动端，向下滑动显示全屏，向上滑动退出全屏
+* 安全问题，防止 SQL 注入（operate.php）
+* CS、js 文件合并压缩（后台页面 manage.php）
 
 ## Licence
 
