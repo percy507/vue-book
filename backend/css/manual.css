@@ -1,0 +1,90 @@
+.manual-add-book {
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.manual-add-book>h1 {
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    line-height: 50px;
+    background: #03a9f4;
+    color: #FFF;
+    font-size: 1.6em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form-item {
+    position: relative;
+    display: flex;
+    width: 80%;
+    height: 30px;
+    line-height: 30px;
+    margin: 15px auto;
+}
+
+.form-item:nth-child(1) {
+    margin-top: 30px;
+}
+
+.form-item label {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type=text] {
+    flex-grow: 1;
+    padding: 2px 4px;
+}
+
+label[for=upload-img] {
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    height: 30px;
+    background: #aaa;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#upload-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    opacity: 0;
+    display: block;
+}
+
+.form-item:nth-last-child(1) {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    margin-top: 30px;
+    line-height: 30px;
+}
+
+.submit-data {
+    box-sizing: border-box;
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    border: none;
+}
+
+#submit-in {
+    left: 60px;
+}
+
+#submit-out {
+    right: 60px;
+}
+
+.submit-close {
+    pointer-events: none;
+}
