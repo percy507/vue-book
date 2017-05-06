@@ -9,6 +9,8 @@
 
 [![logic](simple-logic.png)](simple-logic.png)
 
+我在自己的服务器上把这个项目搭建好了，但是，目前不便给出登录后台的链接，只给出前台的链接，本项目只针对移动端，所以最好在手机上查看链接 ^_^ [(前台链接)](http://www.percymong.com/book2)
+
 ## Build Setup
 
 ``` bash
