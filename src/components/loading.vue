@@ -1,5 +1,6 @@
 <template>
-    <div class="loading" v-show="show">
+    <div class="loading"
+         v-show="show">
         <div class="spinner">
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>
@@ -33,7 +34,7 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 9;
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +43,6 @@ export default {
 
 .spinner {
     position: relative;
-    top: -70px;
     width: 60px;
     height: 60px;
 }

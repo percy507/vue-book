@@ -1,7 +1,7 @@
 <template>
     <div class="book-item">
         <figure @click="toggleCard">
-            <img v-bind:src="picUrl"> </figure>
+            <img v-lazy.container="picUrl"> </figure>
         <div class="rest-number">库存量：
             <span>{{restNumber}}</span>
         </div>
@@ -9,6 +9,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'book-item',
     props: ['bookTitle', 'bookAuthor', 'picUrl', 'restNumber'],
@@ -28,7 +29,7 @@ export default {
     display: inline-block;
     opacity: 0;
     transform: scale(0.6);
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .show {
@@ -51,8 +52,6 @@ export default {
     line-height: 1.8;
     color: #666;
 }
-
-
 
 /*
 .book-item:nth-child(odd) .rest-number {    

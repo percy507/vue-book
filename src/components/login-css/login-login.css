@@ -1,0 +1,25 @@
+#just-see {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 333;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+}
+
+#forget-password {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 333;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+}
+
+#login-login {
+    margin-right: 40px;
+}
+
+.login-page .form-item:nth-last-child(1) input {
+    color: #03a9f4;
+}

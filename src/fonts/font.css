@@ -2,40 +2,6 @@
 **********************************/
 
 @font-face {
-  font-family: title;
-  src: url('./title.ttf');
-}
-
-
-/* icons font
-************************************/
-
-@font-face {
-  font-family: 'icomoon';
-  src: url('./icomoon.eot?yjr7bg');
-  src: url('./icomoon.eot?yjr7bg#iefix') format('embedded-opentype'), url('./icomoon.ttf?yjr7bg') format('truetype'), url('./icomoon.woff?yjr7bg') format('woff'), url('./icomoon.svg?yjr7bg#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-[class^="icon-"],
-[class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-search::before {
-  content: "\e986";
-}
-
-.icon-menu::before {
-  content: "\e9bd";
+    font-family: title;
+    src: url('./title.ttf');
 }

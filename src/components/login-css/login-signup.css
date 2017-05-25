@@ -1,0 +1,12 @@
+.signup-page .form {
+    padding-top: 20%;
+}
+
+.signup-page .return {
+    position: absolute;
+    z-index: 333;
+    top: 20px;
+    left: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+}

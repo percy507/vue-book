@@ -1,5 +1,6 @@
 <template>
-    <div class="overlay" @click="toggleSidebar">
+    <div class="overlay"
+         @click="toggleSidebar">
     </div>
 </template>
 

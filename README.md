@@ -1,4 +1,4 @@
-<h1 style="text-align:center;color:#03a9f4">Vue-book</h1>
+# Vue-book
 
 ## 说明
 
@@ -8,6 +8,10 @@
 本项目实现了一些简单的功能，后台可以对图书进行录入录出（扫码或手动），前台显示录入的图书。具体请看下面的实现逻辑图。
 
 [![logic](simple-logic.png)](simple-logic.png)
+
+我在自己的服务器上把这个项目搭建好了，但是，目前不便给出登录后台的链接，只给出前台的链接，本项目只针对移动端，所以最好在手机上查看链接 ^_^
+
+* [前台链接](http://www.percymong.com/book2)
 
 ## Build Setup
 
@@ -75,6 +79,13 @@ Vue-book directory
 ├── webpack.config.js               # Webpack 配置相关信息
 ├── README.md
 ```
+
+## 待解决问题
+
+* 切换内容页面时，默认滚动到内容最顶部（content.vue）
+* 移动端，向下滑动显示全屏，向上滑动退出全屏
+* 安全问题，防止 SQL 注入（operate.php）
+* CSS、js 文件合并压缩（后台页面 manage.php）
 
 ## Licence
 

@@ -1,0 +1,24 @@
+.userinfo-page .form {
+    padding-top: 20%;
+}
+
+.userinfo-page .return {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    z-index: 333;
+    width: 60px;
+    margin: 0 auto;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+}
+
+.userinfo-page .return p {
+    margin: 0;
+}
+
+.userinfo-page .return p:first-child {
+    margin-bottom: 10px;
+}

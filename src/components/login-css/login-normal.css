@@ -1,0 +1,131 @@
+/*     page layput
+**************************/
+
+#login-container {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+}
+
+.forget-password-page,
+.login-page,
+.signup-page,
+.userinfo-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+}
+
+.forget-password-page,
+.signup-page,
+.userinfo-page {
+    z-index: 666;
+}
+
+.forget-password-page {
+    background: #F79D2D;
+    transform: translateX(-100%);
+}
+
+.login-page {
+    background: #03a9f4;
+}
+
+.signup-page {
+    background: #B89E97;
+    transform: translateX(100%);
+}
+
+.userinfo-page {
+    background: #CF9B61;
+    transform: translateY(100%);
+    overflow: hidden;
+}
+
+.show-page {
+    transform: translateY(0);
+    transform: translateX(0);
+}
+
+
+/*   other
+**************************************/
+
+.form {
+    position: relative;
+    box-sizing: border-box;
+    height: 100%;
+    padding-top: 40%;
+    color: #FFF;
+    transition: 0.6s;
+}
+
+.form-up {
+    transform: translateY(-120px);
+}
+
+.form h1 {
+    margin-bottom: 10%;
+    text-align: center;
+}
+
+.form-item {
+    box-sizing: border-box;
+    display: flex;
+    width: 80%;
+    height: 44px;
+    border: 2px solid #FFF;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #aaa !important;
+    font-size: 14px !important;
+}
+
+.form-item input {
+    box-sizing: border-box;
+    flex-grow: 1;
+    height: 40px;
+    border: none;
+    padding: 3px 10px;
+    color: #888;
+    font-size: 1.2em;
+}
+
+.form-item input:focus {
+    outline: none;
+}
+
+.form-item:nth-last-child(1) {
+    margin-top: 20px;
+    border: none;
+}
+
+.form-item:nth-last-child(1) input {
+    display: inline-block;
+    background: #FFF;
+    text-align: center;
+    font-size: 1.4em;
+    justify-content: center;
+}
+
+.form-item label {
+    box-sizing: border-box;
+    font-size: 1.2em;
+    word-break: keep-all;
+    font-weight: bolder;
+    line-height: 40px;
+}
+
+.form-item label span {
+    padding: 0 16px;
+}
+
+.submit-close {
+    pointer-events: none;
+}
