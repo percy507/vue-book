@@ -1,44 +1,64 @@
 <template>
     <div id="app">
-        <loading></loading>
         <vLogin></vLogin>
-        <vMenu></vMenu>
-        <vHelp></vHelp>
-        <vBookList></vBookList>
-        <vContainer></vContainer>
+        <loading v-if="showLoading"></loading>
+        <vContainer v-if="showContainer"></vContainer>
+        <vMenu v-if="showMenu"></vMenu>
+        <vBookList v-if="user_state"></vBookList>
+        <vSetting v-if="user_state"></vSetting>
+        <vHelp v-if="showHelp"></vHelp>
     </div>
 </template>
 
 <script>
-import vLogin from './components/login.vue';
-import vMenu from './components/menu.vue';
-import vContainer from './components/container.vue';
 import loading from './components/loading.vue';
-import vHelp from './components/help.vue';
-import vBookList from './components/book-list.vue';
+import vLogin from './components/login.vue';
+import vContainer from './components/container.vue';
+import vMenu from './components/menu/menu.vue';
+import vBookList from './components/menu/book-list.vue';
+import vSetting from './components/menu/setting.vue';
+import vHelp from './components/menu/help.vue';
 
 export default {
     name: 'app',
+    data: function () {
+        return {
+            showLoading: false,
+            showContainer: false,
+            showMenu: false,
+            showHelp: false
+        };
+    },
+    computed: {
+        user_state: function () {
+            return this.$store.state.user_state === 'login_success';
+        }
+    },
     components: {
         loading,
         vLogin,
-        vMenu,
         vContainer,
-        vHelp,
-        vBookList
+        vMenu,
+        vBookList,
+        vSetting,
+        vHelp
     },
     created: function () {
-
+        setTimeout(() => {
+            this.showLoading = true;
+        }, 0);
+        setTimeout(() => {
+            this.showContainer = true;
+        }, 0);
+        setTimeout(() => {
+            this.showMenu = true;
+        }, 0);
+        setTimeout(() => {
+            this.showHelp = true;
+        }, 0);
     }
 }
 
-
-// 万能脚本，自动屏蔽 pc
-window.addEventListener('DOMContentLoaded', function () {
-    if (!((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i).test(navigator.userAgent))) {
-        document.documentElement.innerHTML = "<p>请使用手机微信打开此页面哦~</p>";
-    }
-});
 </script>
     
 <style>
@@ -51,12 +71,6 @@ body,
 body {
     margin: 0;
 }
-
-
-
-
-
-
 
 
 /* 设置全屏模式下 body 的宽度高度 */

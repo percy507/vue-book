@@ -20,7 +20,8 @@
                 </svg>
                 <span>{{ menu_list.book_list }}</span>
             </li>
-            <li v-if="this.user_state === 'login_success'">
+            <li v-if="this.user_state === 'login_success'"
+                @click="showSetting">
                 <svg version="1.1"
                      xmlns="http://www.w3.org/2000/svg"
                      width="32"
@@ -31,7 +32,7 @@
                 </svg>
                 <span>{{ menu_list.setting }}</span>
             </li>
-            <li @click="help">
+            <li @click="showHelp">
                 <svg version="1.1"
                      xmlns="http://www.w3.org/2000/svg"
                      width="32"
@@ -63,7 +64,7 @@
 // 因为项目要接入微信，而微信浏览器不支持全屏显示
 // 所以将全屏显示功能注释掉了，舍不得删  0.0
 
-// import fullScreen from '../common/fullscreen.js';
+// import fullScreen from '../../common/fullscreen.js';
 
 export default {
     name: 'menu',
@@ -120,29 +121,35 @@ export default {
             this.$store.commit('TOGGLE_SIDEBAR');
             this.$store.commit('TOGGLE_BOOK_LIST');
         },
-        help: function () {
+        showSetting: function () {
+            this.$store.commit('TOGGLE_SIDEBAR');
+            this.$store.commit('TOGGLE_SETTING');
+        },
+        showHelp: function () {
             this.$store.commit('TOGGLE_SIDEBAR');
             this.$store.commit('TOGGLE_HELP');
         },
         logout: function () {
-            if (this.user_state === 'not_login') {
-                return;
-            } else {
-                // 登出时清除 cookie
-                let now = Date.now();
-                let expireTime = new Date(now - 1000);
-                document.cookie = `user${this.$store.state.user.phone_number}=${now}end;expires=${expireTime.toUTCString()};`;
 
-                // 清除用户信息
-                this.$store.state.user.phone_number = '';
-                this.$store.state.user.name = '';
-                this.$store.state.user.id_number = '';
-                this.$store.state.user.academy = '';
-                this.$store.state.user.address = '';
+            // 登出时清除 cookie
+            let now = Date.now();
+            let expireTime = new Date(now - 1000);
+            document.cookie = `user${this.$store.state.user.phone_number}=${now}end;expires=${expireTime.toUTCString()};`;
 
-                this.$store.commit('CHANGE_USER_STATE', 'not_login');
-                this.$store.commit('TOGGLE_LOGIN_PAGE');
-            }
+            // 清除用户信息
+            this.$store.state.user.phone_number = '';
+            this.$store.state.user.name = '';
+            this.$store.state.user.id_number = '';
+            this.$store.state.user.academy = '';
+            this.$store.state.user.address = '';
+
+            // 清除用户订单信息
+            window.sessionStorage.clear();
+
+            this.$store.commit('TOGGLE_SIDEBAR');
+            this.$store.commit('CHANGE_USER_STATE', 'not_login');
+            this.$store.commit('TOGGLE_LOGIN_PAGE');
+
         }
     },
     watch: {
@@ -157,56 +164,60 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-.menu-list
-    box-sizing: border-box
-    position: absolute
-    top: 0
-    left: 0
-    z-index: 1
-    width: 250px
-    height: 100%
-    background: #808080
-    transition: 1s
+<style>
+.menu-list {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 250px;
+    height: 100%;
+    background: #808080;
+    transition: 1s;
+}
 
-    header
-        width: 50%
-        margin: 20px auto 0
+.menu-list header {
+    width: 50%;
+    margin: 20px auto 0;
+}
 
-        img
-            width: 100%
-            border-radius: 50%
+.menu-list header img {
+    width: 100%;
+    border-radius: 50%;
+}
 
-    h1
-        text-align: center
-        font-size: 1.6em
-        color: #FFF
-    
+.menu-list h1 {
+    text-align: center;
+    font-size: 1.6em;
+    color: #fff;
+}
 
-    ul
-        box-sizing: border-box
-        padding: 0
-        margin-top: 50px
-        padding-left: 40px
+.menu-list ul {
+    box-sizing: border-box;
+    padding: 0;
+    margin-top: 50px;
+    padding-left: 40px;
+}
 
-    li
-        display: block
-        height: 40px
-        line-height 40px
-        font-size: 1.2em
-        font-weight: bolder
-        color: #a6adb3
-        list-style: none
-        margin-top: 20px
+.menu-list li {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.2em;
+    font-weight: bolder;
+    color: #a6adb3;
+    list-style: none;
+    margin-top: 20px;
+}
 
-    li span {
-        display: inline-block
-        margin-left: 20px
-        color: #fff
-    }
+.menu-list li span {
+    display: inline-block;
+    margin-left: 20px;
+    color: #fff;
+}
 
-    svg {
-        vertical-align: middle
-    }
-
+.menu-list svg {
+    vertical-align: middle;
+}
 </style>

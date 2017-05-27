@@ -10,7 +10,7 @@
                            :rest-number="bookCard[3]"></book-card>
             </transition>
             <book-item v-for="(book,index) in books"
-                       key="index"
+                       :key="index"
                        :book-title="book[0]"
                        :book-author="book[1]"
                        :picUrl="book[2]"
@@ -25,7 +25,7 @@
 <script>
 import bookCard from './book-card.vue';
 import bookItem from './book-item.vue';
-import getData from '../common/getdata.js';
+import getData from '../../common/getdata.js';
 
 // 初始化检测位置，值为未滑动时 book.getBoundingClientRect().top 的值
 let initPos = 56;
@@ -57,6 +57,9 @@ export default {
         },
         user_state: function () {
             return this.$store.state.user_state;
+        },
+        isShowLogin: function () {
+            return this.$store.state.isShowLogin;
         }
     },
     components: {
@@ -102,7 +105,8 @@ export default {
 
                 that.$store.commit('TOGGLE_LOADING');
             }).catch(function () {
-                console.log('获取数据失败~');
+                alert('获取数据失败~');
+                that.$store.commit('TOGGLE_LOADING');
             });
         },
         scrollLoad: function () {
@@ -120,8 +124,12 @@ export default {
         });
     },
     watch: {
-        user_state: function () {
+        isShowLogin: function () {
             let that = this;
+
+            if (that.isShowLogin === true) {
+                return;
+            }
 
             that.request_count = 1;
 
@@ -136,6 +144,8 @@ export default {
                 queryObj.academy = that.$store.state.user.academy;
             }
 
+            that.$store.commit('TOGGLE_LOADING');
+
             getData(that.url, queryObj).then(function (result) {
                 console.log(that.user_state);
 
@@ -148,8 +158,10 @@ export default {
                     that.books = JSON.parse(result);
                 }
 
+                that.$store.commit('TOGGLE_LOADING');
             }).catch(function () {
-                console.log('获取数据失败~');
+                alert('获取数据失败~');
+                that.$store.commit('TOGGLE_LOADING');
             });
         },
         keyword: function () {
@@ -196,7 +208,8 @@ export default {
 
                 that.$store.commit('TOGGLE_LOADING');
             }).catch(function () {
-                console.log('获取数据失败~');
+                alert('获取数据失败~');
+                that.$store.commit('TOGGLE_LOADING');
             });
         },
         type: function () {
@@ -240,7 +253,8 @@ export default {
 
                 that.$store.commit('TOGGLE_LOADING');
             }).catch(function () {
-                console.log('获取数据失败~');
+                alert('获取数据失败~');
+                that.$store.commit('TOGGLE_LOADING');
             });
         }
     }

@@ -9,7 +9,7 @@
 <script>
 import overlay from './overlay.vue';
 import vHeader from './header.vue';
-import vContent from './content.vue';
+import vContent from './content/content.vue';
 
 export default {
     name: 'container',

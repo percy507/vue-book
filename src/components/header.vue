@@ -88,6 +88,7 @@ export default {
     z-index: 22;
     max-width: 800px;
     width: 100%;
+    height: 50px;
     max-height: 50px;
     margin: 0 auto;
     background: #03a9f4;
@@ -96,17 +97,18 @@ export default {
 }
 
 .header h1 {
-    font-size: 2em;
+    line-height: 50px;
+    font-size: 1.4em;
     font-weight: bolder;
-    font-family: title;
     opacity: 0.8;
     text-align: center;
     color: #FFF;
-    margin: 7px 60px;
+    margin: 0;
 }
 
 .icon {
     position: absolute;
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;

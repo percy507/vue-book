@@ -13,6 +13,7 @@ const state = {
     isShowLogin: true,
     isShowHelp: false,
     isShowBookList: false,
+    isShowSetting: false,
     // user 对象用来存储登录成功后从服务器接收到的数据
     user: {
         phone_number: '',
@@ -46,11 +47,14 @@ const mutations = {
     CHANGE_USER_STATE(state, user_state) {
         state.user_state = user_state;
     },
-    TOGGLE_HELP(state) {
-        state.isShowHelp = state.isShowHelp ? false : true;
-    },
     TOGGLE_BOOK_LIST(state) {
         state.isShowBookList = state.isShowBookList ? false : true;
+    },
+    TOGGLE_SETTING(state) {
+        state.isShowSetting = state.isShowSetting ? false : true;
+    },
+    TOGGLE_HELP(state) {
+        state.isShowHelp = state.isShowHelp ? false : true;
     }
 }
 

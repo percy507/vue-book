@@ -36,7 +36,7 @@ export default {
             return this.$store.state.symbol;
         },
         value: function () {
-            return this.bookTitle + this.symbol + this.bookAuthor;
+            return this.bookTitle + this.symbol + this.bookAuthor + this.symbol + this.picUrl + this.symbol + this.restNumber + this.symbol + 1;
         }
     },
     methods: {

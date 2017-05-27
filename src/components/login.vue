@@ -1,8 +1,10 @@
 <template>
+    <!-- login.vue 感觉这个页面要是再组件化细分下去就好啦，但是我懒了 -->
     <transition name="fade">
         <div id="login-container"
-             v-if="isShowLogin">
-            <div class="forget-password-page">
+             v-show="isShowLogin">
+            <div class="forget-password-page"
+                 v-if="isShow">
                 <div class="return"
                      @click="showLoginPage">
                     返回 &gt;
@@ -102,7 +104,8 @@
                     </div>
                 </form>
             </div>
-            <div class="signup-page">
+            <div class="signup-page"
+                 v-if="isShow">
                 <div class="return"
                      @click="showLoginPage">
                     &lt; 返回
@@ -165,7 +168,8 @@
                     </div>
                 </form>
             </div>
-            <div class="userinfo-page">
+            <div class="userinfo-page"
+                 v-if="isShow">
                 <div class="return"
                      @click="showLoginPage">
                     <p>&#8248;</p>
@@ -243,6 +247,7 @@ export default {
     name: 'login',
     data: function () {
         return {
+            isShow: false,
             isFormUp: false,
             waitTime: 60,
             globalTimer: '',
@@ -271,6 +276,11 @@ export default {
         isShowLogin: function () {
             return this.$store.state.isShowLogin;
         }
+    },
+    created: function () {
+        setTimeout(() => {
+            this.isShow = true;
+        }, 0);
     },
     mounted: function () {
         let that = this;
@@ -318,6 +328,9 @@ export default {
                 }
 
             });
+        } else {
+            // 否则就清空之前用户的 sessionStorage 数据
+            window.sessionStorage.clear();
         }
     },
     methods: {
@@ -378,6 +391,8 @@ export default {
                 return;
             }
 
+            that.$store.commit('TOGGLE_LOADING');
+
             // 发送验证码后，暂时禁用验证码按钮
             event.target.classList.add('submit-close');
 
@@ -386,6 +401,8 @@ export default {
                 phone_number: that.phone_number,
                 flag: flag
             }).then(function (data) {
+                that.$store.commit('TOGGLE_LOADING');
+
                 if (flag === 'forget_password' && data === 'not_found') {
                     alert('该用户尚未注册哦 ~');
                     return;
@@ -413,6 +430,7 @@ export default {
 
                 that.message = that.waitTime;
             }).catch(function (e) {
+                that.$store.commit('TOGGLE_LOADING');
                 alert(e);
             });
 
@@ -466,10 +484,10 @@ export default {
                         that.$store.commit('TOGGLE_LOGIN_PAGE');
 
                         // 登录成功后，将服务器发来的时间戳写入本地 cookie
-                        // 并设置过期时间为 30分钟
+                        // 并设置过期时间为 1 小时
                         // 注意 PHP 返回的时间戳单位是秒，而 JavaScript 操作的是毫秒
                         let tokenTime = Number.parseInt(arr[1], 10);
-                        let expireTime = new Date(tokenTime * 1000 + 30 * 60 * 1000);
+                        let expireTime = new Date(tokenTime * 1000 + 60 * 60 * 1000);
                         document.cookie = `user${that.phone_number}=${tokenTime}end;expires=${expireTime.toUTCString()};`;
                     }
                 }
@@ -578,7 +596,7 @@ export default {
                 that.$store.commit('TOGGLE_LOADING');
 
                 if (data === 'update_userinfo_success') {
-                    alert('恭喜您，信息已完善 ~');
+                    alert('恭喜您，信息已完善，请重新登录 ~');
                 } else {
                     alert('未知错误 ~');
                     return;

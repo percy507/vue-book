@@ -1,20 +1,38 @@
 <template>
-    <div class="help"
-         @click="toggleHelp">
+    <div class="help">
+        <div class="return-to-home"
+             @click="toggleHelp">&lt; 返回</div>
         <div class="help-container">
             <h1>公告</h1>
-            <div>为了保证我们能准确送书到您的寝室，请务必保证自己填写的信息准确无误，防止尴尬。</div>
+            <pre v-text="message"></pre>
         </div>
     </div>
 </template>
 
 <script>
+import getData from '../../common/getdata.js';
+
 export default {
     name: 'help',
+    data: function () {
+        return {
+            message: '',
+            messageUrl: 'http://localhost/book/new/server/get-help-message.php'
+        };
+    },
     computed: {
         isShowHelp: function () {
             return this.$store.state.isShowHelp;
         }
+    },
+    mounted: function () {
+        let that = this;
+
+        getData(that.messageUrl).then(function (result) {
+            that.message = JSON.parse(result)[0];
+        }).catch(function (e) {
+            alert(e);
+        });
     },
     methods: {
         toggleHelp: function () {
@@ -46,6 +64,7 @@ export default {
 <style>
 .help {
     position: fixed;
+    top: 0;
     z-index: -1;
     width: 100%;
     height: 100%;
@@ -71,17 +90,19 @@ export default {
     height: 100%;
     background: #F0F4C1;
     color: #6C3A27;
+    overflow-y: scroll;
 }
 
 .help-container h1 {
+    font-size: 1.6em;
     text-align: center;
 }
 
-.help-container div {
-    line-height: 1.6;
-    text-indent: 2em;
+.help-container pre {
+    line-height: 1.8;
     margin: 10px 20px;
-    font-size: 1.2em;
+    font-size: 16px;
+    white-space: pre-wrap;
 }
 
 .show-help {
