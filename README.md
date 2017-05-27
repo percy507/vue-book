@@ -1,22 +1,23 @@
 # Vue-book 2.0
 
-
-
 ## 说明
 
 * **前端: Vue.js + Vuex + Webpack2**
 * **后端: php + MySQL**
 
-本项目实现了一些简单的功能，后台可以对图书进行录入录出（扫码或手动），前台显示录入的图书。具体请看下面的实现逻辑图。
+> 要是你对 PHP 和 MySQL 没啥基础，可以逛逛[**我的博客**](http://blog.percymong.com/archives/)，有几篇文章是用来介绍这些基础的。
 
-[![logic](./_image/simple-logic.png)](simple-logic.png)
+本项目是一个简单的全栈项目，前端新手可以拿来练练手。
+
+项目实现了一些简单的功能，后台可以对图书进行录入录出（扫码或手动），前台显示录入的图书，并且前台注册登录后可以将书的订单发给服务器，并存到服务器。具体请看下面的实现逻辑图。
+
+![logic](https://github.com/percy507/vue-book/blob/master/_image/simple-logic.png)
 
 我在自己的服务器上把这个项目搭建好了，但是，目前不便给出登录后台的链接，只给出前台的链接，本项目只针对移动端，所以最好在手机上查看链接 ^_^
 
-
 ## Demo && 演示
 
-![二维码](./_image/qr_code.png)
+![二维码](https://github.com/percy507/vue-book/blob/master/_image/qr_code.png)
 
 * [前台链接](http://www.percymong.com/book2)
 
@@ -24,17 +25,14 @@
 
 ---
 
-![](./_image/1.png)
-![](./_image/2.png)
-![](./_image/3.png)
-![](./_image/4.png)
-![](./_image/5.png)
-![](./_image/6.png)
-![](./_image/7.png)
-![](./_image/8.png)
-![](./_image/9.png)
-![](./_image/10.png)
-![](./_image/11.png)
+<img src="https://github.com/percy507/vue-book/blob/master/_image/1.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/2.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/3.png" width="200">
+
+<img src="https://github.com/percy507/vue-book/blob/master/_image/4.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/5.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/6.png" width="200">
+
+<img src="https://github.com/percy507/vue-book/blob/master/_image/7.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/8.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/9.png" width="200">
+
+<img src="https://github.com/percy507/vue-book/blob/master/_image/10.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/11.png" width="200">
+
 
 ## Build Setup
 
@@ -139,13 +137,15 @@ Vue-book directory
 * 手动录入录出书籍
 * 后台登录更改公告信息
 
+## 未解决问题
 
-## 待解决问题
+* 切换内容页面时，自动滚动到内容最顶部（content.vue）
+* 退出页面时提示（浏览器上可以监听 beforeunload 事件，但是微信上不行）
 
-* 切换内容页面时，默认滚动到内容最顶部（content.vue）
-* 移动端，向下滑动显示全屏，向上滑动退出全屏
-* 安全问题，防止 SQL 注入（operate.php）
-* CSS、js 文件合并压缩（后台页面 manage.php）
+## 心得与遗憾
+
+* 要是在写代码之前先认认真真地把项目各个模块的流程图（或逻辑流程图）先画出来的话，感觉写代码效率会大大提高。（或者说写代码之前先把产品整体的构思与架构先画个图表示出来）
+* 遗憾是，项目虽然引入了 vue-router，但是基本上没用到，整个页面都是基于事件开发出来的，没有路由，那就下个项目再用 vue-router 吧 ~
 
 ## Licence
 
