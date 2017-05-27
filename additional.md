@@ -1,15 +1,51 @@
 
 > 下面是一些前后端数据交互时比较重要的一些接口
 
-### menu.vue
+### login.vue
 
 ```json
-// menu_list
+// login
 {
-    '公共课': 'public_class',
-    '编程': 'programming',
-    '电路电子': 'electric',
-    '其它': 'other_books'
+    "phone_number": "",
+    "password": ""
+}
+```
+
+```json
+// signup
+{
+    "phone_number": "",
+    "password": "",
+    "auth_code": ""         // 验证码
+}
+```
+
+```json
+// forget_password
+{
+    "phone_number": "",
+    "password": "",
+    "auth_code": ""
+}
+```
+
+```json
+// userinfo
+{
+    "phone_number": "",     // 手机号
+    "name": "",             // 姓名
+    "id_number":"",         // 学号
+    "academy":"",           // 学院
+    "address":""            // 地址
+}
+```
+
+### book-list.vue
+
+```json
+{
+    "phone_number": "",       // 用户名
+    "order_details": ""       // 订单详细信息（一个 JSON 数组）
 }
 ```
 
@@ -18,11 +54,12 @@
 ```json
 // queryObj
 {
-    type: home,           // 记录请求时所在的分类
-    // type: home(default)、public_class、programming、electric、other_books、search
-    data_num: 10,         // 一次请求返回的数据个数
-    request_count: 0,     // 记录请求的次数，方便实现下滑继续加载
-    keyword: 'xxx'        // 搜索关键字（only for type='search'）
+    "user_state": "",       // not_login or login_success
+    "type": "home",         // 记录请求时所在的分类  type: home(default)、search
+    "data_num": 10,         // 一次请求返回的数据个数
+    "request_count": 0,     // 记录请求的次数，方便实现下滑继续加载
+    "keyword": "",          // 搜索关键字（only for type='search'）
+    "academy": ""           // 用户所在学院（only for user_state="login_success"）
 }
 ```
 
@@ -30,13 +67,13 @@
 
 ```json
 {
-    flag: 'in-scan',       // 记录操作的方式
+    "flag": "in-scan",              // 记录操作的方式
     // flag: in-scan、out-scan、in-manual、out-manual
-    kind: 'xxx',           // 书的分类
-    title: 'xxx',          // 书名
-    author: 'xxx',         // 作者
-    imageSrc || imageFile  // 封面图片（链接或文件）
-    number: 10             // 书的数量
+    "kind": "",                     // 书的分类
+    "title": "",                    // 书名
+    "author": "",                   // 作者
+    "imageSrc || imageFile": "",    // 封面图片（链接或文件）
+    "number": 10                    // 书的数量
 }
 ```
 
