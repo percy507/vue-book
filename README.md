@@ -25,13 +25,13 @@
 
 ---
 
-<img src="https://github.com/percy507/vue-book/blob/master/_image/1.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/2.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/3.png" width="200">
+<img src="https://github.com/percy507/vue-book/blob/master/_image/1.png" > <img src="https://github.com/percy507/vue-book/blob/master/_image/2.png" > <img src="https://github.com/percy507/vue-book/blob/master/_image/3.png" >
 
-<img src="https://github.com/percy507/vue-book/blob/master/_image/4.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/5.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/6.png" width="200">
+<img src="https://github.com/percy507/vue-book/blob/master/_image/4.png" > <img src="https://github.com/percy507/vue-book/blob/master/_image/5.png" > <img src="https://github.com/percy507/vue-book/blob/master/_image/6.png" >
 
-<img src="https://github.com/percy507/vue-book/blob/master/_image/7.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/8.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/9.png" width="200">
+<img src="https://github.com/percy507/vue-book/blob/master/_image/7.png" > <img src="https://github.com/percy507/vue-book/blob/master/_image/8.png" > <img src="https://github.com/percy507/vue-book/blob/master/_image/9.png" >
 
-<img src="https://github.com/percy507/vue-book/blob/master/_image/10.png" width="200"> | | | | | | | <img src="https://github.com/percy507/vue-book/blob/master/_image/11.png" width="200">
+<img src="https://github.com/percy507/vue-book/blob/master/_image/10.png" > <img src="https://github.com/percy507/vue-book/blob/master/_image/11.png" >
 
 
 ## Build Setup
