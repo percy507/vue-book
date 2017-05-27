@@ -65,10 +65,10 @@
 
 ### scan.js || manual.js
 
-```json
+```txt
 {
     "flag": "in-scan",              // 记录操作的方式
-    // flag: in-scan、out-scan、in-manual、out-manual
+                                    // flag: in-scan、out-scan、in-manual、out-manual
     "kind": "",                     // 书的分类
     "title": "",                    // 书名
     "author": "",                   // 作者
