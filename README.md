@@ -19,8 +19,6 @@
 
 > 由于我没有继续给主机空间续费，所以被停用了，所以没发进行线上演示了
 
-![二维码](https://github.com/percy507/vue-book/blob/master/_image/qr_code.png)
-
 * **前台登录测试账号：15566666666，密码：666666**
 
 ---
