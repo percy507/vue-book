@@ -19,8 +19,6 @@
 
 > 由于我没有继续给主机空间续费，所以被停用了，所以没发进行线上演示了
 
-* **前台登录测试账号：15566666666，密码：666666**
-
 ---
 
 <img src="https://github.com/percy507/vue-book/blob/master/_image/1.png" > <img src="https://github.com/percy507/vue-book/blob/master/_image/2.png" > <img src="https://github.com/percy507/vue-book/blob/master/_image/3.png" >
